@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Stackly Signup</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="signup.css">
+
+</head>
+
+<body>
+
+  <!-- =========================
+       MAIN CONTAINER
+  ========================== -->
+  <section class="auth-container">
+
+    <!-- =========================
+         LOGO
+    ========================== -->
+    <div class="logo">
+
+      <i class="fa-solid fa-graduation-cap"></i>
+
+      <span>Stackly</span>
+
+    </div>
+
+    <!-- =========================
+         LEFT SECTION
+    ========================== -->
+    <div class="left-section">
+
+      <!-- HERO CONTENT -->
+      <div class="hero-content">
+
+        <h1>
+          Start Learning Today.
+          <span>Build Skills.</span>
+          Unlock Opportunities.
+        </h1>
+
+        <p>
+          Join thousands of students and educators
+          using Stackly to grow faster with modern,
+          industry-focused learning experiences.
+        </p>
+
+        <!-- FEATURES -->
+        <div class="feature-list">
+
+          <div class="feature-pill">
+            <i class="fa-solid fa-rocket"></i>
+            <span>Skill-Based Learning</span>
+          </div>
+
+          <div class="feature-pill">
+            <i class="fa-solid fa-certificate"></i>
+            <span>Certified Programs</span>
+          </div>
+
+          <div class="feature-pill">
+            <i class="fa-solid fa-globe"></i>
+            <span>Community Access</span>
+          </div>
+
+          <div class="feature-pill">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>Career Ready</span>
+          </div>
+
+        </div>
+
+        <!-- ACHIEVEMENT PANEL -->
+        <div class="achievement-panel">
+
+          <div class="achievement-item">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <span>
+              Learn from industry experts
+            </span>
+
+          </div>
+
+          <div class="achievement-item">
+
+            <i class="fa-solid fa-laptop-code"></i>
+
+            <span>
+              Build real-world projects
+            </span>
+
+          </div>
+
+          <div class="achievement-item">
+
+            <i class="fa-solid fa-certificate"></i>
+
+            <span>
+              Earn verified certifications
+            </span>
+
+          </div>
+
+          <div class="achievement-item">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            <span>
+              Become career ready
+            </span>
+
+          </div>
+
+        </div>
+
+        <!-- COMMUNITY BOX -->
+        <div class="community-box">
+
+          <div class="users">
+
+            <img src="https://i.pravatar.cc/100?img=1" alt="">
+            <img src="https://i.pravatar.cc/100?img=2" alt="">
+            <img src="https://i.pravatar.cc/100?img=3" alt="">
+            <img src="https://i.pravatar.cc/100?img=4" alt="">
+
+          </div>
+
+          <p>
+            <span>12K+</span> learners joined this month
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- BLUR EFFECTS -->
+      <div class="blur blur-one"></div>
+      <div class="blur blur-two"></div>
+
+    </div>
+
+    <!-- =========================
+         RIGHT SECTION
+    ========================== -->
+    <div class="right-section">
+
+      <!-- AUTH CARD -->
+      <div class="auth-card">
+
+        <!-- FORM HEADER -->
+        <div class="form-header">
+
+          <h2>Create Account ✨</h2>
+
+          <p>
+            Join Stackly and start your learning journey
+          </p>
+
+        </div>
+
+        <!-- ROLE SELECTOR -->
+        <div class="role-selector">
+
+          <button class="role-btn active">
+
+            <i class="fa-solid fa-user-graduate"></i>
+
+            Student
+
+          </button>
+
+          <button class="role-btn">
+
+            <i class="fa-solid fa-chalkboard-user"></i>
+
+            Educator
+
+          </button>
+
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <form class="auth-form">
+
+          <!-- FULL NAME -->
+          <div class="input-group">
+
+            <label>Full Name</label>
+
+            <div class="input-field">
+
+              <i class="fa-solid fa-user"></i>
+
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                required
+              >
+
+            </div>
+
+          </div>
+
+          <!-- EMAIL -->
+          <div class="input-group">
+
+            <label>Email Address</label>
+
+            <div class="input-field">
+
+              <i class="fa-solid fa-envelope"></i>
+
+              <input
+                type="email"
+                placeholder="Enter your email"
+                required
+              >
+
+            </div>
+
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="input-group">
+
+            <label>Password</label>
+
+            <div class="input-field">
+
+              <i class="fa-solid fa-lock"></i>
+
+              <input
+                type="password"
+                id="password"
+                placeholder="Create password"
+                required
+              >
+
+            </div>
+
+          </div>
+
+          <!-- CONFIRM PASSWORD -->
+          <div class="input-group">
+
+            <label>Confirm Password</label>
+
+            <div class="input-field">
+
+              <i class="fa-solid fa-shield-halved"></i>
+
+              <input
+                type="password"
+                id="confirm-password"
+                placeholder="Confirm password"
+                required
+              >
+
+            </div>
+            <p class="error-text" id="password-error"></p>
+
+          </div>
+
+          <!-- TERMS -->
+          <div class="form-options">
+
+            <div class="remember">
+
+              <input type="checkbox" id="terms" required>
+
+              <label for="terms">
+                I agree to Terms & Conditions
+              </label>
+
+            </div>
+            <p class="error-text" id="terms-error"></p>
+          </div>
+
+          <!-- BUTTON -->
+         <button type="submit" class="login-btn">
+            Create Account
+            <i class="fa-solid fa-arrow-right"></i>
+         </button>
+
+        </form>
+
+        <!-- DIVIDER -->
+        <div class="divider">
+
+          <span>OR</span>
+
+        </div>
+
+        <!-- SOCIAL LOGIN -->
+        <div class="social-login">
+
+          <a href="./404page.html" class="social-btn">
+            <i class="fa-brands fa-google"></i>
+          </a>
+
+          <a href="./404page.html" class="social-btn">
+            <i class="fa-brands fa-github"></i>
+          </a>
+
+          <a href="./404page.html" class="social-btn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+
+        </div>
+
+        <!-- BOTTOM TEXT -->
+        <div class="bottom-text">
+
+          <p>
+
+            Already have an account?
+
+            <a href="./index.html">
+              Login
+            </a>
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<script>
+    /* =========================
+    ROLE SELECTOR
+    ========================= */
+
+    const roleButtons =
+    document.querySelectorAll(".role-btn");
+
+    roleButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        roleButtons.forEach(btn => {
+        btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+    });
+
+    });
+
+    /* =========================
+    FORM VALIDATION
+    ========================= */
+    const form =
+    document.querySelector(".auth-form");
+
+    const password =
+    document.getElementById("password");
+
+    const confirmPassword =
+    document.getElementById("confirm-password");
+
+    const terms =
+    document.getElementById("terms");
+
+    const passwordError =
+    document.getElementById("password-error");
+
+    const termsError =
+    document.getElementById("terms-error");
+
+    /* =========================
+    FORM SUBMIT
+    ========================= */
+
+   form.addEventListener("submit", function(e){
+
+  e.preventDefault(); // always control manually
+
+  let isValid = true;
+
+  /* RESET */
+  passwordError.innerText = "";
+  termsError.innerText = "";
+
+  /* PASSWORD VALIDATION */
+  if(password.value.trim() !== confirmPassword.value.trim()){
+    passwordError.innerText = "Passwords do not match";
+    isValid = false;
+  }
+
+  /* TERMS VALIDATION */
+  if(!terms.checked){
+    termsError.innerText = "Please accept Terms & Conditions";
+    isValid = false;
+  }
+
+  /* SUCCESS FLOW */
+  if(isValid){
+
+    const btn = document.querySelector(".login-btn");
+    btn.innerHTML = "Creating Account...";
+
+    setTimeout(() => {
+      window.location.href = "./index.html";
+    }, 1000);
+
+  }
+
+});
+</script>
+</body>
+</html>

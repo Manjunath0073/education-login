@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Stackly Education Login</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ================= MAIN CONTAINER ================= -->
+  <section class="auth-container">
+    
+    <!-- Logo -->
+    <div class="logo">
+    <i class="fa-solid fa-graduation-cap"></i>
+    <span>Stackly</span>
+    </div>
+    <!-- ================= LEFT CONTENT ================= -->
+    <div class="left-section">
+
+      <!-- Hero Content -->
+      <div class="hero-content">
+
+        <h1>
+          Learn Smarter.
+          <span>Build Faster.</span>
+          Shape Your Future.
+        </h1>
+
+        <p>
+          Access courses, live classes, assignments,
+          and personalized learning experiences
+          from expert mentors worldwide.
+        </p>
+
+        <!-- Features -->
+        <div class="feature-list">
+
+          <div class="feature-pill">
+            <i class="fa-solid fa-book-open"></i>
+            <span>500+ Courses</span>
+          </div>
+
+          <div class="feature-pill">
+            <i class="fa-solid fa-user-group"></i>
+            <span>Expert Mentors</span>
+          </div>
+
+          <div class="feature-pill">
+            <i class="fa-solid fa-bullseye"></i>
+            <span>Career Focused</span>
+          </div>
+
+          <div class="feature-pill">
+            <i class="fa-solid fa-globe"></i>
+            <span>Global Community</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Floating Stats -->
+      <div class="floating-cards">
+
+        <div class="stats-card card-one">
+          <h3>25K+</h3>
+          <p>Active Students</p>
+        </div>
+
+        <div class="stats-card card-two">
+          <h3>98%</h3>
+          <p>Success Rate</p>
+        </div>
+
+        <div class="stats-card card-three">
+          <h3>120+</h3>
+          <p>Expert Mentors</p>
+        </div>
+
+      </div>
+
+      <!-- Background Blur Effects -->
+      <div class="blur blur-one"></div>
+      <div class="blur blur-two"></div>
+
+    </div>
+
+    <!-- ================= RIGHT FORM SECTION ================= -->
+    <div class="right-section">
+
+      <!-- Auth Card -->
+      <div class="auth-card">
+
+        <!-- Form Header -->
+        <div class="form-header">
+
+          <h2>Welcome Back 👋</h2>
+
+          <p>
+            Sign in to continue your learning journey
+          </p>
+
+        </div>
+
+        <!-- Role Selector -->
+        <div class="role-selector">
+
+          <button class="role-btn active">
+            <i class="fa-solid fa-user-graduate"></i>
+            Student
+          </button>
+
+          <button class="role-btn">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            Educator
+          </button>
+
+        </div>
+
+        <!-- Login Form -->
+        <form class="auth-form">
+
+          <!-- Email -->
+          <div class="input-group">
+
+            <label>Email Address</label>
+
+            <div class="input-field">
+              <i class="fa-solid fa-envelope"></i>
+
+              <input
+                type="email"
+                placeholder="Enter your email"
+                required
+              >
+            </div>
+
+          </div>
+
+          <!-- Password -->
+          <div class="input-group">
+
+            <label>Password</label>
+
+            <div class="input-field">
+              <i class="fa-solid fa-lock"></i>
+
+              <input
+                type="password"
+                placeholder="Enter your password"
+                required
+              >
+            </div>
+
+          </div>
+
+          <!-- Options -->
+          <div class="form-options">
+
+            <div class="remember">
+
+              <input type="checkbox" id="remember">
+
+              <label for="remember">
+                Remember me
+              </label>
+
+            </div>
+
+            <a href="./404page.html" class="forgot-password">
+              Forgot Password?
+            </a>
+
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="login-btn">
+            Continue Learning
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </form>
+
+        <!-- Divider -->
+        <div class="divider">
+          <span>OR</span>
+        </div>
+
+        <!-- Social Login -->
+        <div class="social-login">
+
+          <a href="./404page.html" class="social-btn">
+            <i class="fa-brands fa-google"></i>
+          </a>
+
+          <a href="./404page.html" class="social-btn">
+            <i class="fa-brands fa-github"></i>
+          </a>
+
+          <a href="./404page.html" class="social-btn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+
+        </div>
+
+        <!-- Bottom Text -->
+        <div class="bottom-text">
+
+          <p>
+            Don’t have an account?
+            <a href="./signUp.html">Sign Up</a>
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+<script>
+
+  const roleButtons = document.querySelectorAll(".role-btn");
+
+  roleButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      roleButtons.forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+    });
+
+  });
+
+</script>
+</body>
+</html>
