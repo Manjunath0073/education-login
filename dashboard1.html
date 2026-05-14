@@ -97,24 +97,22 @@
     <!-- =========================
          STATS CARDS
     ========================== -->
-    <div class="card">
-    <h3 class="counter" data-target="12">0</h3>
-    <p>Courses Enrolled</p>
-    </div>
+    <div class="card-container">
 
-    <div class="card">
-    <h3 class="counter" data-target="78">0</h3>
-    <p>Average Progress</p>
-    </div>
+      <div class="card">
+        <h3>Total Courses</h3>
+        <p class="counter" data-target="12">0</p>
+      </div>
 
-    <div class="card">
-    <h3 class="counter" data-target="5">0</h3>
-    <p>Completed Courses</p>
-    </div>
+      <div class="card">
+        <h3>Completed</h3>
+        <p class="counter" data-target="8">0</p>
+      </div>
 
-    <div class="card">
-    <h3 class="counter" data-target="24">0</h3>
-    <p>Study Time (hrs)</p>
+      <div class="card">
+        <h3>In Progress</h3>
+        <p class="counter" data-target="4">0</p>
+      </div>
     </div>
 
     <!-- =========================
@@ -162,11 +160,11 @@
         const target = +counter.getAttribute("data-target");
         const current = +counter.innerText;
 
-        const increment = Math.ceil(target / 30);
+        const increment = Math.ceil(target / 100);
 
         if(current < target){
         counter.innerText = current + increment;
-        setTimeout(updateCount, 40);
+        setTimeout(updateCount, 80);
         } else {
         counter.innerText = target;
         }

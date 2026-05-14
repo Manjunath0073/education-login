@@ -121,15 +121,23 @@
         <!-- Role Selector -->
         <div class="role-selector">
 
-          <button class="role-btn active" type="button" data-role="student">
-            <i class="fa-solid fa-user-graduate"></i>
-            Student
-          </button>
+            <button
+                type="button"
+                class="role-btn active"
+                data-role="student"
+            >
+                <i class="fa-solid fa-user-graduate"></i>
+                Student
+            </button>
 
-          <button class="role-btn" type="button" data-role="educator">
-            <i class="fa-solid fa-chalkboard-user"></i>
-            Educator
-          </button>
+            <button
+                type="button"
+                class="role-btn"
+                data-role="educator"
+            >
+                <i class="fa-solid fa-chalkboard-user"></i>
+                Educator
+            </button>
 
         </div>
 
@@ -234,68 +242,82 @@
       </div>
 
     </div>
+    
 
   </section>
 <script>
 
+/* =========================
+   ROLE SELECTOR
+========================= */
+
 const roleButtons =
 document.querySelectorAll(".role-btn");
 
-roleButtons.forEach(button => {
+/* DEFAULT ROLE */
+let selectedRole = "student";
 
-  button.addEventListener("click", () => {
+roleButtons.forEach((button) => {
 
-    roleButtons.forEach(btn => {
+  button.onclick = function(){
+
+    roleButtons.forEach((btn) => {
       btn.classList.remove("active");
     });
 
-    button.classList.add("active");
+    this.classList.add("active");
 
-  });
+    selectedRole =
+    this.dataset.role;
+
+    console.log("Selected Role:", selectedRole);
+
+  };
 
 });
 
 /* =========================
-   FORM SUBMIT
+   LOGIN FORM
 ========================= */
 
 const form =
 document.querySelector(".auth-form");
 
-form.addEventListener("submit", function(e){
+form.onsubmit = function(e){
 
   e.preventDefault();
 
-  /* GET USERNAME */
   const username =
   document.getElementById("email").value;
 
-  /* GET ROLE */
-  const selectedRole =
-  document.querySelector(".role-btn.active")
-  .dataset.role;
+  localStorage.setItem(
+    "username",
+    username
+  );
 
-  /* SAVE */
-  localStorage.setItem("username", username);
+  localStorage.setItem(
+    "role",
+    selectedRole
+  );
 
-  localStorage.setItem("role", selectedRole);
+  console.log(selectedRole);
 
   /* REDIRECT */
-  if(selectedRole === "student"){
+  if(selectedRole === "educator"){
 
     window.location.href =
-    "./dashboard1.html";
+    "dashboard2.html";
 
   }
 
   else{
 
     window.location.href =
-    "./dashboard2.html";
+    "dashboard1.html";
 
   }
 
-});
+};
 
 </script>
 </body>
