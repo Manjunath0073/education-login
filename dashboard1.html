@@ -23,46 +23,122 @@
 ========================= -->
 <div class="dashboard-container">
 
-  <!-- =========================
-       SIDEBAR
-  ========================== -->
-  <aside class="sidebar">
+  <!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
 
-    <div class="logo">
-      <i class="fa-solid fa-graduation-cap"></i>
-      <span>Stackly</span>
+  <!-- LOGO -->
+  <div class="logo">
+    <i class="fa-solid fa-graduation-cap"></i>
+    <span>Stackly</span>
+  </div>
+
+  <!-- MENU -->
+  <nav class="menu">
+
+    <a
+    href="#"
+    class="nav-link active"
+    data-section="dashboard-section"
+    >
+      <i class="fa-solid fa-house"></i>
+      Dashboard
+    </a>
+
+    <a
+    href="#"
+    class="nav-link"
+    data-section="courses-section"
+    >
+
+    <i class="fa-solid fa-book-open"></i>
+
+    My Courses
+
+    </a>
+
+    <a
+    href="#"
+    class="nav-link"
+    data-section="progress-section"
+    >
+
+    <i class="fa-solid fa-chart-line"></i>
+
+    Progress
+
+    </a>
+
+    <a
+    href="#"
+    class="nav-link"
+    data-section="schedule-section"
+    >
+
+    <i class="fa-solid fa-calendar"></i>
+
+    Schedule
+
+    </a>
+
+    <a
+    href="#"
+    class="nav-link"
+    data-section="settings-section"
+    >
+
+    <i class="fa-solid fa-gear"></i>
+
+    Settings
+
+    </a>
+
+  </nav>
+
+  <!-- PROGRESS CARD -->
+  <div class="sidebar-card">
+
+    <h4>Learning Progress</h4>
+
+    <div class="progress-bar">
+
+      <div class="progress-fill"></div>
+
     </div>
 
-    <nav class="menu">
+    <p>75% Completed</p>
 
-      <a href="#" class="active">
-        <i class="fa-solid fa-grid-2"></i>
-        Dashboard
-      </a>
+  </div>
 
-      <a href="./404page.html">
-        <i class="fa-solid fa-book"></i>
-        Courses
-      </a>
+  <!-- UPGRADE CARD -->
+  <div class="upgrade-card">
 
-      <a href="./404page.html">
-        <i class="fa-solid fa-chart-line"></i>
-        Progress
-      </a>
+    <div class="upgrade-icon">
+      <i class="fa-solid fa-crown"></i>
+    </div>
 
-      <a href="./404page.html">
-        <i class="fa-solid fa-user"></i>
-        Profile
-      </a>
-      <a href="#" id="logout-btn">
-        <i class="fa-solid fa-right-from-bracket"></i>
-        Logout
-      </a>
+    <h4>Upgrade to Pro</h4>
 
-    </nav>
+    <p>
+      Unlock premium courses and mentorship.
+    </p>
 
-  </aside>
+    <button class="upgrade-btn">
+      Upgrade Now
+    </button>
 
+  </div>
+
+  <!-- LOGOUT -->
+  <a href="#" id="logout-btn" class="logout-btn">
+
+    <i class="fa-solid fa-right-from-bracket"></i>
+
+    Logout
+
+  </a>
+
+</aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
   <!-- =========================
        MAIN CONTENT
   ========================== -->
@@ -71,82 +147,462 @@
     <!-- TOP BAR -->
     <header class="topbar">
 
-      <div>
-        <h2>Student Dashboard</h2>
-        <p>Track your learning progress</p>
-      </div>
+  <!-- LEFT -->
+        <div class="topbar-left">
 
-      <div class="user-box">
-
-        <i class="fa-solid fa-bell"></i>
-
-        <div class="user-info">
-
-            <h4 id="dashboard-name"></h4>
-
-            <span id="dashboard-role"></span>
+            <button class="menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
+            </button>
 
         </div>
 
-        <img src="https://i.pravatar.cc/40" alt="user">
+  <!-- RIGHT -->
+        <div class="user-box">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <div class="user-info">
+            <h4 id="dashboard-username">Student</h4>
+            <span id="dashboard-role">Student</span>
+            </div>
+
+            <img
+            src="https://i.pravatar.cc/40"
+            alt="user"
+            >
 
         </div>
 
-    </header>
+</header>
 
-    <!-- =========================
-         STATS CARDS
-    ========================== -->
-    <div class="card-container">
+    <!-- MOBILE HEADING -->
+    <div class="mobile-heading">
 
-      <div class="card">
-        <h3>Total Courses</h3>
-        <p class="counter" data-target="12">0</p>
-      </div>
+    <h2>Student Dashboard</h2>
 
-      <div class="card">
-        <h3>Completed</h3>
-        <p class="counter" data-target="8">0</p>
-      </div>
+    <p>Track your learning progress</p>
 
-      <div class="card">
-        <h3>In Progress</h3>
-        <p class="counter" data-target="4">0</p>
-      </div>
     </div>
 
+
     <!-- =========================
-         CHART SECTION
-    ========================== -->
+     DASHBOARD SECTION
+    ========================= -->
+    <section
+    class="content-section active"
+    id="dashboard-section"
+    >
+
+        <!-- STATS CARDS -->
+        <div class="card-container">
+
+            <div class="card">
+            <h3>Total Courses</h3>
+            <p class="counter" data-target="12">0</p>
+            </div>
+
+            <div class="card">
+            <h3>Completed</h3>
+            <p class="counter" data-target="8">0</p>
+            </div>
+
+            <div class="card">
+            <h3>In Progress</h3>
+            <p class="counter" data-target="4">0</p>
+            </div>
+
+        </div>
+
+    <!-- CHART SECTION -->
     <section class="charts">
 
-      <div class="chart-box">
+        <div class="chart-box">
         <h3>Weekly Progress</h3>
         <canvas id="barChart"></canvas>
-      </div>
+        </div>
 
-      <div class="chart-box">
+        <div class="chart-box">
         <h3>Course Distribution</h3>
         <canvas id="pieChart"></canvas>
-      </div>
+        </div>
 
     </section>
 
-    <!-- =========================
-         ACTIVITY SECTION
-    ========================== -->
+    <!-- ACTIVITY -->
     <section class="activity">
 
-      <h3>Recent Activity</h3>
+        <h3>Recent Activity</h3>
 
-      <ul>
+        <ul>
         <li>Completed React Basics</li>
         <li>Joined JavaScript Bootcamp</li>
         <li>Watched CSS Animations Module</li>
-      </ul>
+        </ul>
 
     </section>
 
+    </section>
+    <!-- =========================
+        COURSES SECTION
+    ========================= -->
+    <section
+    class="content-section"
+    id="courses-section"
+    >
+
+    <div class="courses-header">
+
+        <h2>My Courses</h2>
+
+        <p>
+        Continue your enrolled learning programs
+        </p>
+
+    </div>
+
+    <!-- COURSES GRID -->
+    <div class="courses-grid">
+
+        <!-- COURSE CARD -->
+        <div class="course-card">
+
+        <div class="course-image">
+            <i class="fa-solid fa-code"></i>
+        </div>
+
+        <div class="course-content">
+
+            <span class="course-tag">
+            Frontend
+            </span>
+
+            <h3>Modern JavaScript</h3>
+
+            <p>
+            Learn advanced JavaScript concepts with projects.
+            </p>
+
+            <!-- PROGRESS -->
+            <div class="course-progress">
+
+            <div class="course-progress-fill"></div>
+
+            </div>
+
+            <div class="course-footer">
+
+            <span>75% Completed</span>
+
+            <button class="course-btn">
+                Continue
+            </button>
+
+            </div>
+
+        </div>
+
+        </div>
+
+        <!-- COURSE CARD -->
+        <div class="course-card">
+
+        <div class="course-image purple">
+            <i class="fa-solid fa-palette"></i>
+        </div>
+
+        <div class="course-content">
+
+            <span class="course-tag">
+            UI/UX
+            </span>
+
+            <h3>UI Design Mastery</h3>
+
+            <p>
+            Build modern responsive UI designs professionally.
+            </p>
+
+            <div class="course-progress">
+
+            <div
+            class="course-progress-fill progress2"
+            ></div>
+
+            </div>
+
+            <div class="course-footer">
+
+            <span>52% Completed</span>
+
+            <button class="course-btn">
+                Continue
+            </button>
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </div>
+
+    </section>
+
+    <!-- =========================
+        PROGRESS SECTION
+    ========================= -->
+    <section
+    class="content-section"
+    id="progress-section"
+    >
+
+    <div class="progress-header">
+
+        <h2>Learning Progress</h2>
+
+        <p>
+        Track your course performance and achievements
+        </p>
+
+    </div>
+
+    <!-- PROGRESS CARDS -->
+    <div class="progress-grid">
+
+        <!-- CARD -->
+        <div class="progress-card">
+
+        <div class="progress-icon blue">
+            <i class="fa-solid fa-book"></i>
+        </div>
+
+        <h3>Courses Completed</h3>
+
+        <h1>08</h1>
+
+        <p>Great consistency in learning</p>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="progress-card">
+
+        <div class="progress-icon purple">
+            <i class="fa-solid fa-clock"></i>
+        </div>
+
+        <h3>Hours Learned</h3>
+
+        <h1>124h</h1>
+
+        <p>Total learning time completed</p>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="progress-card">
+
+        <div class="progress-icon cyan">
+            <i class="fa-solid fa-trophy"></i>
+        </div>
+
+        <h3>Certificates</h3>
+
+        <h1>05</h1>
+
+        <p>Achievements unlocked successfully</p>
+
+        </div>
+
+    </div>
+
+    <!-- SKILL PROGRESS -->
+    <div class="skills-wrapper">
+
+        <div class="skill-card">
+
+        <div class="skill-top">
+            <span>HTML & CSS</span>
+            <span>92%</span>
+        </div>
+
+        <div class="skill-bar">
+            <div class="skill-fill html"></div>
+        </div>
+
+        </div>
+
+        <div class="skill-card">
+
+        <div class="skill-top">
+            <span>JavaScript</span>
+            <span>74%</span>
+        </div>
+
+        <div class="skill-bar">
+            <div class="skill-fill js"></div>
+        </div>
+
+        </div>
+
+        <div class="skill-card">
+
+        <div class="skill-top">
+            <span>React</span>
+            <span>58%</span>
+        </div>
+
+        <div class="skill-bar">
+            <div class="skill-fill react"></div>
+        </div>
+
+        </div>
+
+    </div>
+
+    </section>
+
+    <!-- =========================
+        SCHEDULE SECTION
+    ========================= -->
+    <section class="content-section" id="schedule-section">
+
+    <div class="section-header">
+
+        <h2>Learning Schedule</h2>
+
+        <p>Your upcoming classes and study plans</p>
+
+    </div>
+
+    <div class="schedule-container">
+
+        <!-- ITEM -->
+        <div class="schedule-card">
+
+        <div class="schedule-date">
+            <span>14</span>
+            <small>May</small>
+        </div>
+
+        <div class="schedule-content">
+            <h3>React Live Session</h3>
+            <p>Frontend Development</p>
+        </div>
+
+        <div class="schedule-time">
+            10:00 AM
+        </div>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="schedule-card">
+
+        <div class="schedule-date">
+            <span>15</span>
+            <small>May</small>
+        </div>
+
+        <div class="schedule-content">
+            <h3>JavaScript Assignment</h3>
+            <p>Complete DOM Project</p>
+        </div>
+
+        <div class="schedule-time">
+            02:30 PM
+        </div>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="schedule-card">
+
+        <div class="schedule-date">
+            <span>16</span>
+            <small>May</small>
+        </div>
+
+        <div class="schedule-content">
+            <h3>UI/UX Workshop</h3>
+            <p>Modern Dashboard Design</p>
+        </div>
+
+        <div class="schedule-time">
+            05:00 PM
+        </div>
+
+        </div>
+
+    </div>
+
+    </section>
+
+    <!-- =========================
+        SETTINGS SECTION
+    ========================= -->
+    <section class="content-section" id="settings-section">
+
+    <div class="section-header">
+
+        <h2>Account Settings</h2>
+
+        <p>Manage your profile and preferences</p>
+
+    </div>
+
+    <div class="settings-container">
+
+        <!-- PROFILE -->
+        <div class="settings-card">
+
+        <h3>Profile Information</h3>
+
+        <div class="settings-form">
+
+            <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your name">
+            </div>
+
+            <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email">
+            </div>
+
+        </div>
+
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="settings-card">
+
+        <h3>Change Password</h3>
+
+        <div class="settings-form">
+
+            <div class="input-group">
+            <label>Current Password</label>
+            <input type="password" placeholder="Current password">
+            </div>
+
+            <div class="input-group">
+            <label>New Password</label>
+            <input type="password" placeholder="New password">
+            </div>
+
+        </div>
+
+        </div>
+
+        <!-- BUTTON -->
+        <button class="save-btn">
+        Save Changes
+        </button>
+
+    </div>
+
+    </section>
   </main>
 
 </div>
@@ -318,8 +774,8 @@
     localStorage.getItem("role");
 
     /* DISPLAY IN DASHBOARD */
-    document.getElementById("dashboard-name")
-    .innerText = username || "Guest User";
+   document.getElementById("dashboard-username")
+.innerText = username || "Guest User";
 
     document.getElementById("dashboard-role")
     .innerText = role || "Student";
@@ -340,6 +796,80 @@
     window.location.href = "./index.html";
 
     });
+
+/* =========================
+   SIDEBAR TOGGLE
+========================= */
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const sidebar =
+document.querySelector(".sidebar");
+
+const overlay =
+document.querySelector(".sidebar-overlay");
+
+menuToggle.addEventListener("click", () => {
+
+  sidebar.classList.toggle("active");
+
+  overlay.classList.toggle("active");
+
+});
+
+overlay.addEventListener("click", () => {
+
+  sidebar.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+});
+/* =========================
+   SECTION NAVIGATION
+========================= */
+
+const navLinks =
+document.querySelectorAll(".nav-link");
+
+const contentSections =
+document.querySelectorAll(".content-section");
+
+navLinks.forEach(link => {
+
+  link.addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    /* REMOVE ACTIVE NAV */
+    navLinks.forEach(item => {
+      item.classList.remove("active");
+    });
+
+    /* HIDE SECTIONS */
+    contentSections.forEach(section => {
+      section.classList.remove("active");
+    });
+
+    /* ACTIVATE LINK */
+    link.classList.add("active");
+
+    /* TARGET SECTION */
+    const targetSection =
+    link.getAttribute("data-section");
+
+    document
+      .getElementById(targetSection)
+      .classList.add("active");
+
+    /* CLOSE MOBILE SIDEBAR */
+    sidebar.classList.remove("active");
+
+    overlay.classList.remove("active");
+
+  });
+
+});
 </script>
 </body>
 </html>

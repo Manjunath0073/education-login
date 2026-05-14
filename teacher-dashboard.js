@@ -332,3 +332,67 @@ logoutBtn.addEventListener("click", function(e){
   window.location.href = "./index.html";
 
 });
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const sidebar =
+document.querySelector(".sidebar");
+
+const overlay =
+document.getElementById("sidebarOverlay");
+
+menuToggle.addEventListener("click", () => {
+
+  sidebar.classList.toggle("active");
+
+  overlay.classList.toggle("active");
+
+});
+
+overlay.addEventListener("click", () => {
+
+  sidebar.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+});
+
+const links = document.querySelectorAll(".nav-link");
+const sections = document.querySelectorAll(".content-section");
+
+function showSection(sectionId) {
+
+  sections.forEach(sec => {
+    sec.classList.remove("active-section");
+  });
+
+  document.getElementById(sectionId)
+    .classList.add("active-section");
+
+}
+
+links.forEach(link => {
+
+  link.addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    const target = link.getAttribute("data-section");
+
+    showSection(target);
+
+    // ACTIVE LINK STYLE
+    links.forEach(l => l.classList.remove("active"));
+    link.classList.add("active");
+
+    // CLOSE SIDEBAR (mobile)
+    document.querySelector(".sidebar")
+      .classList.remove("active");
+
+    document.querySelector(".sidebar-overlay")
+      .classList.remove("active");
+
+  });
+
+});

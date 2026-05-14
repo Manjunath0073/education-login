@@ -43,40 +43,44 @@
 
     <nav class="menu">
 
-      <a href="#" class="active">
-        <i class="fa-solid fa-table-columns"></i>
-        Dashboard
-      </a>
+      <a
+      href="#"
+      class="nav-link active"
+      data-section="dashboard-section"
+    >
 
-      <a href="#">
-        <i class="fa-solid fa-users"></i>
-        Students
-      </a>
+      <i class="fa-solid fa-table-columns"></i>
 
-      <a href="#">
-        <i class="fa-solid fa-book-open"></i>
-        Courses
-      </a>
+      Dashboard
 
-      <a href="#">
-        <i class="fa-solid fa-chart-line"></i>
-        Analytics
-      </a>
+    </a>
 
-      <a href="#">
-        <i class="fa-solid fa-wallet"></i>
-        Revenue
-      </a>
+    <a
+      href="#"
+      class="nav-link"
+      data-section="students-section"
+    >
+      <i class="fa-solid fa-users"></i>
+      Students
+    </a>
 
-      <a href="#">
-        <i class="fa-solid fa-message"></i>
-        Messages
-      </a>
+    <a
+      href="#"
+      class="nav-link"
+      data-section="courses-section"
+    >
+      <i class="fa-solid fa-book-open"></i>
+      Courses
+    </a>
 
-      <a href="#">
-        <i class="fa-solid fa-gear"></i>
-        Settings
-      </a>
+    <a
+      href="#"
+      class="nav-link"
+      data-section="settings-section"
+    >
+      <i class="fa-solid fa-gear"></i>
+      Settings
+    </a>
       <a href="#" id="logout-btn">
         <i class="fa-solid fa-right-from-bracket"></i>
         Logout
@@ -85,40 +89,142 @@
     </nav>
 
   </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <!-- ================= MAIN CONTENT ================= -->
   <main class="main-content">
 
-    <!-- TOPBAR -->
-    <header class="topbar">
+  <section id="dashboard-section" class="content-section active-section">
 
-      <div>
-        <h2>Educator Dashboard</h2>
-        <p>Manage courses, students & analytics</p>
-      </div>
+      <!-- TOPBAR -->
+      <header class="topbar">
 
-      <div class="user-box">
+        <!-- LEFT -->
+        <div class="topbar-left">
 
-        <i class="fa-solid fa-bell"></i>
+          <!-- HAMBURGER -->
+          <button class="menu-toggle" id="menuToggle">
 
-        <div class="user-info">
+            <i class="fa-solid fa-bars"></i>
 
-          <h4 id="dashboard-name"></h4>
+          </button>
 
-          <span id="dashboard-role"></span>
+          <!-- LOGO -->
+          <div class="mobile-logo">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <span>Stackly</span>
+
+          </div>
 
         </div>
 
-        <img
-          src="https://i.pravatar.cc/40"
-          alt="user"
-        >
+        <!-- RIGHT -->
+        <div class="user-box">
 
-      </div>
+          <i class="fa-solid fa-bell"></i>
 
-    </header>
+          <div class="user-info">
 
-    <!-- ================= STATS ================= -->
+            <h4 id="dashboard-name"></h4>
+
+            <span id="dashboard-role"></span>
+
+          </div>
+
+          <img
+            src="https://i.pravatar.cc/40"
+            alt="user"
+          >
+
+        </div>
+
+      </header>
+
+
+        <div class ="main-heading">
+          <h2>Educator Dashboard</h2>
+          <p>Manage courses, students & analytics</p>
+        </div>
+      <!-- ================= STATS ================= -->
+      <section class="stats">
+
+        <div class="card">
+          <h3>2.4K</h3>
+          <p>Total Students</p>
+        </div>
+
+        <div class="card">
+          <h3>18</h3>
+          <p>Active Courses</p>
+        </div>
+
+        <div class="card">
+          <h3>$12.8K</h3>
+          <p>Monthly Revenue</p>
+        </div>
+
+        <div class="card">
+          <h3>89%</h3>
+          <p>Completion Rate</p>
+        </div>
+
+      </section>
+
+      <!-- ================= CHARTS ================= -->
+      <section class="charts">
+
+        <div class="chart-box large-chart">
+          <h3>Revenue Analytics</h3>
+          <canvas id="lineChart"></canvas>
+        </div>
+
+        <div class="chart-box">
+          <h3>Course Completion</h3>
+          <canvas id="doughnutChart"></canvas>
+        </div>
+
+      </section>
+
+      <!-- ================= SECOND ROW ================= -->
+      <section class="charts">
+
+        <div class="chart-box">
+          <h3>Student Growth</h3>
+          <canvas id="barChart"></canvas>
+        </div>
+
+        <div class="activity">
+
+          <h3>Top Performing Courses</h3>
+
+          <ul>
+
+            <li>UI/UX Masterclass — 94%</li>
+
+            <li>Advanced JavaScript — 89%</li>
+
+            <li>Frontend Bootcamp — 86%</li>
+
+            <li>React Development — 82%</li>
+
+          </ul>
+
+        </div>
+
+      </section>
+  </section>
+
+   <section id="students-section" class="content-section">
+
+    <!-- TOP TITLE -->
+    <div class="main-heading">
+      <h2>Students</h2>
+      <p>Manage all enrolled students</p>
+    </div>
+
+    <!-- STATS CARDS -->
     <section class="stats">
 
       <div class="card">
@@ -127,65 +233,156 @@
       </div>
 
       <div class="card">
-        <h3>18</h3>
-        <p>Active Courses</p>
+        <h3>1.8K</h3>
+        <p>Active Students</p>
       </div>
 
       <div class="card">
-        <h3>$12.8K</h3>
-        <p>Monthly Revenue</p>
+        <h3>600</h3>
+        <p>New This Month</p>
       </div>
 
       <div class="card">
-        <h3>89%</h3>
-        <p>Completion Rate</p>
+        <h3>92%</h3>
+        <p>Engagement Rate</p>
       </div>
 
     </section>
 
-    <!-- ================= CHARTS ================= -->
-    <section class="charts">
+    <!-- TABLE SECTION -->
+    <section class="activity">
 
-      <div class="chart-box large-chart">
-        <h3>Revenue Analytics</h3>
-        <canvas id="lineChart"></canvas>
-      </div>
+      <h3>Recent Students</h3>
 
-      <div class="chart-box">
-        <h3>Course Completion</h3>
-        <canvas id="doughnutChart"></canvas>
-      </div>
-
-    </section>
-
-    <!-- ================= SECOND ROW ================= -->
-    <section class="charts">
-
-      <div class="chart-box">
-        <h3>Student Growth</h3>
-        <canvas id="barChart"></canvas>
-      </div>
-
-      <div class="activity">
-
-        <h3>Top Performing Courses</h3>
-
-        <ul>
-
-          <li>UI/UX Masterclass — 94%</li>
-
-          <li>Advanced JavaScript — 89%</li>
-
-          <li>Frontend Bootcamp — 86%</li>
-
-          <li>React Development — 82%</li>
-
-        </ul>
-
-      </div>
+      <ul>
+        <li>John Doe — React Course</li>
+        <li>Sarah Smith — JavaScript Bootcamp</li>
+        <li>Aarav Kumar — UI/UX Design</li>
+        <li>Meera Iyer — Full Stack Development</li>
+      </ul>
 
     </section>
 
+  </section>
+
+  <section id="courses-section" class="content-section">
+
+    <!-- HEADER -->
+    <div class="main-heading">
+      <h2>Courses</h2>
+      <p>Create and manage your courses</p>
+    </div>
+
+    <!-- ACTION BAR -->
+    <div class="course-actions">
+
+      <button class="add-course-btn">
+        + Add New Course
+      </button>
+
+    </div>
+
+    <!-- COURSE GRID -->
+    <div class="course-grid">
+
+      <div class="course-card">
+        <h3>UI/UX Masterclass</h3>
+        <p>Design principles, wireframes & prototypes</p>
+        <span class="status active">Active</span>
+      </div>
+
+      <div class="course-card">
+        <h3>Advanced JavaScript</h3>
+        <p>ES6+, async programming, projects</p>
+        <span class="status active">Active</span>
+      </div>
+
+      <div class="course-card">
+        <h3>React Development</h3>
+        <p>Hooks, state management, real apps</p>
+        <span class="status draft">Draft</span>
+      </div>
+
+      <div class="course-card">
+        <h3>Backend Basics</h3>
+        <p>Node.js, APIs, databases</p>
+        <span class="status active">Active</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="settings-section" class="content-section">
+
+    <!-- HEADER -->
+    <div class="main-heading">
+      <h2>Settings</h2>
+      <p>Manage your account preferences</p>
+    </div>
+
+    <!-- SETTINGS GRID -->
+    <div class="settings-grid">
+
+      <!-- PROFILE -->
+      <div class="settings-card">
+
+        <h3>Profile</h3>
+
+        <div class="settings-item">
+          <label>Name</label>
+          <input type="text" placeholder="Enter your name">
+        </div>
+
+        <div class="settings-item">
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email">
+        </div>
+
+      </div>
+
+      <!-- SECURITY -->
+      <div class="settings-card">
+
+        <h3>Security</h3>
+
+        <div class="settings-item">
+          <label>Password</label>
+          <input type="password" placeholder="New password">
+        </div>
+
+        <div class="settings-item">
+          <label>Confirm Password</label>
+          <input type="password" placeholder="Confirm password">
+        </div>
+
+      </div>
+
+      <!-- PREFERENCES -->
+      <div class="settings-card">
+
+        <h3>Preferences</h3>
+
+        <div class="toggle-item">
+          <span>Dark Mode</span>
+          <input type="checkbox">
+        </div>
+
+        <div class="toggle-item">
+          <span>Email Notifications</span>
+          <input type="checkbox" checked>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SAVE BUTTON -->
+    <div class="settings-actions">
+      <button class="save-btn">Save Changes</button>
+    </div>
+
+  </section>
   </main>
 
 </div>
