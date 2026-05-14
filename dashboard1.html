@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly - Student Dashboard</title>
+
+  <link rel="stylesheet" href="dashboard1.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- =========================
+     DASHBOARD WRAPPER
+========================= -->
+<div class="dashboard-container">
+
+  <!-- =========================
+       SIDEBAR
+  ========================== -->
+  <aside class="sidebar">
+
+    <div class="logo">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>Stackly</span>
+    </div>
+
+    <nav class="menu">
+
+      <a href="#" class="active">
+        <i class="fa-solid fa-grid-2"></i>
+        Dashboard
+      </a>
+
+      <a href="./404page.html">
+        <i class="fa-solid fa-book"></i>
+        Courses
+      </a>
+
+      <a href="./404page.html">
+        <i class="fa-solid fa-chart-line"></i>
+        Progress
+      </a>
+
+      <a href="./404page.html">
+        <i class="fa-solid fa-user"></i>
+        Profile
+      </a>
+      <a href="#" id="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+      </a>
+
+    </nav>
+
+  </aside>
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+  <main class="main-content">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+
+      <div>
+        <h2>Student Dashboard</h2>
+        <p>Track your learning progress</p>
+      </div>
+
+      <div class="user-box">
+
+        <i class="fa-solid fa-bell"></i>
+
+        <div class="user-info">
+
+            <h4 id="dashboard-name"></h4>
+
+            <span id="dashboard-role"></span>
+
+        </div>
+
+        <img src="https://i.pravatar.cc/40" alt="user">
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+         STATS CARDS
+    ========================== -->
+    <div class="card">
+    <h3 class="counter" data-target="12">0</h3>
+    <p>Courses Enrolled</p>
+    </div>
+
+    <div class="card">
+    <h3 class="counter" data-target="78">0</h3>
+    <p>Average Progress</p>
+    </div>
+
+    <div class="card">
+    <h3 class="counter" data-target="5">0</h3>
+    <p>Completed Courses</p>
+    </div>
+
+    <div class="card">
+    <h3 class="counter" data-target="24">0</h3>
+    <p>Study Time (hrs)</p>
+    </div>
+
+    <!-- =========================
+         CHART SECTION
+    ========================== -->
+    <section class="charts">
+
+      <div class="chart-box">
+        <h3>Weekly Progress</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <h3>Course Distribution</h3>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+    </section>
+
+    <!-- =========================
+         ACTIVITY SECTION
+    ========================== -->
+    <section class="activity">
+
+      <h3>Recent Activity</h3>
+
+      <ul>
+        <li>Completed React Basics</li>
+        <li>Joined JavaScript Bootcamp</li>
+        <li>Watched CSS Animations Module</li>
+      </ul>
+
+    </section>
+
+  </main>
+
+</div>
+<script>
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+
+    const updateCount = () => {
+
+        const target = +counter.getAttribute("data-target");
+        const current = +counter.innerText;
+
+        const increment = Math.ceil(target / 30);
+
+        if(current < target){
+        counter.innerText = current + increment;
+        setTimeout(updateCount, 40);
+        } else {
+        counter.innerText = target;
+        }
+
+    };
+
+        updateCount();
+    });
+    /* =========================
+    BAR CHART - WEEKLY PROGRESS
+    ========================= */
+    const barCtx =
+    document.getElementById("barChart");
+
+    new Chart(barCtx, {
+
+    type: "bar",
+
+    data: {
+
+        labels: [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+        ],
+
+        datasets: [{
+
+        label: "Study Hours",
+
+        data: [3,5,4,6,7,5,8],
+
+        backgroundColor: [
+            "#3b82f6",
+            "#4f46e5",
+            "#8b5cf6",
+            "#06b6d4",
+            "#3b82f6",
+            "#8b5cf6",
+            "#06b6d4"
+        ],
+
+        borderRadius: 12,
+        borderSkipped: false,
+
+        barThickness: 26
+
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+        legend: {
+            display: false
+        }
+        },
+
+        scales: {
+
+        x: {
+
+            grid: {
+            display: false
+            },
+
+            ticks: {
+            color: "#94a3b8"
+            }
+        },
+
+        y: {
+
+            grid: {
+            color: "rgba(255,255,255,0.05)"
+            },
+
+            ticks: {
+            color: "#94a3b8"
+            }
+        }
+        }
+    }
+    });
+
+    /* =========================
+    PIE CHART - COURSE DISTRIBUTION
+    ========================= */
+ const pieCtx =
+    document.getElementById("pieChart");
+
+    new Chart(pieCtx, {
+
+    type: "doughnut",
+
+    data: {
+
+        labels: [
+        "Completed",
+        "In Progress",
+        "Pending"
+        ],
+
+        datasets: [{
+
+        data: [45, 35, 20],
+
+        backgroundColor: [
+            "#3b82f6",
+            "#8b5cf6",
+            "#06b6d4"
+        ],
+
+        borderWidth: 0,
+        hoverOffset: 12
+
+        }]
+    },
+
+    options: {
+
+        cutout: "70%",
+
+        plugins: {
+
+        legend: {
+
+            position: "bottom",
+
+            labels: {
+            color: "#94a3b8",
+            padding: 20
+            }
+        }
+        }
+    }
+    });
+
+    /* FETCH USER DATA */
+    const username =
+    localStorage.getItem("username");
+
+    const role =
+    localStorage.getItem("role");
+
+    /* DISPLAY IN DASHBOARD */
+    document.getElementById("dashboard-name")
+    .innerText = username || "Guest User";
+
+    document.getElementById("dashboard-role")
+    .innerText = role || "Student";
+
+    /* LOGOUT FUNCTIONALITY */
+    const logoutBtn =
+    document.getElementById("logout-btn");
+
+    logoutBtn.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    /* CLEAR USER DATA */
+    localStorage.removeItem("username");
+    localStorage.removeItem("role");
+
+    /* REDIRECT */
+    window.location.href = "./index.html";
+
+    });
+</script>
+</body>
+</html>

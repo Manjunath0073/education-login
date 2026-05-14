@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Stackly Educator Dashboard</title>
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CHART JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="dasboard2.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+
+    <div class="logo">
+      <i class="fa-solid fa-layer-group"></i>
+      <span>Stackly</span>
+    </div>
+
+    <nav class="menu">
+
+      <a href="#" class="active">
+        <i class="fa-solid fa-table-columns"></i>
+        Dashboard
+      </a>
+
+      <a href="#">
+        <i class="fa-solid fa-users"></i>
+        Students
+      </a>
+
+      <a href="#">
+        <i class="fa-solid fa-book-open"></i>
+        Courses
+      </a>
+
+      <a href="#">
+        <i class="fa-solid fa-chart-line"></i>
+        Analytics
+      </a>
+
+      <a href="#">
+        <i class="fa-solid fa-wallet"></i>
+        Revenue
+      </a>
+
+      <a href="#">
+        <i class="fa-solid fa-message"></i>
+        Messages
+      </a>
+
+      <a href="#">
+        <i class="fa-solid fa-gear"></i>
+        Settings
+      </a>
+      <a href="#" id="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+      </a>
+
+    </nav>
+
+  </aside>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="main-content">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+
+      <div>
+        <h2>Educator Dashboard</h2>
+        <p>Manage courses, students & analytics</p>
+      </div>
+
+      <div class="user-box">
+
+        <i class="fa-solid fa-bell"></i>
+
+        <div class="user-info">
+
+          <h4 id="dashboard-name"></h4>
+
+          <span id="dashboard-role"></span>
+
+        </div>
+
+        <img
+          src="https://i.pravatar.cc/40"
+          alt="user"
+        >
+
+      </div>
+
+    </header>
+
+    <!-- ================= STATS ================= -->
+    <section class="stats">
+
+      <div class="card">
+        <h3>2.4K</h3>
+        <p>Total Students</p>
+      </div>
+
+      <div class="card">
+        <h3>18</h3>
+        <p>Active Courses</p>
+      </div>
+
+      <div class="card">
+        <h3>$12.8K</h3>
+        <p>Monthly Revenue</p>
+      </div>
+
+      <div class="card">
+        <h3>89%</h3>
+        <p>Completion Rate</p>
+      </div>
+
+    </section>
+
+    <!-- ================= CHARTS ================= -->
+    <section class="charts">
+
+      <div class="chart-box large-chart">
+        <h3>Revenue Analytics</h3>
+        <canvas id="lineChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <h3>Course Completion</h3>
+        <canvas id="doughnutChart"></canvas>
+      </div>
+
+    </section>
+
+    <!-- ================= SECOND ROW ================= -->
+    <section class="charts">
+
+      <div class="chart-box">
+        <h3>Student Growth</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <div class="activity">
+
+        <h3>Top Performing Courses</h3>
+
+        <ul>
+
+          <li>UI/UX Masterclass — 94%</li>
+
+          <li>Advanced JavaScript — 89%</li>
+
+          <li>Frontend Bootcamp — 86%</li>
+
+          <li>React Development — 82%</li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- ================= FETCH USER ================= -->
+<script>
+
+const username =
+localStorage.getItem("username");
+
+const role =
+localStorage.getItem("role");
+
+document.getElementById("dashboard-name")
+.innerText = username || "Educator";
+
+document.getElementById("dashboard-role")
+.innerText = role || "Educator";
+
+</script>
+
+<!-- ================= CHARTS ================= -->
+<script src="teacher-dashboard.js"></script>
+
+</body>
+</html>

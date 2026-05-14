@@ -121,12 +121,12 @@
         <!-- Role Selector -->
         <div class="role-selector">
 
-          <button class="role-btn active">
+          <button class="role-btn active" type="button" data-role="student">
             <i class="fa-solid fa-user-graduate"></i>
             Student
           </button>
 
-          <button class="role-btn">
+          <button class="role-btn" type="button" data-role="educator">
             <i class="fa-solid fa-chalkboard-user"></i>
             Educator
           </button>
@@ -146,9 +146,10 @@
 
               <input
                 type="email"
+                id="email"
                 placeholder="Enter your email"
                 required
-              >
+                >
             </div>
 
           </div>
@@ -163,6 +164,7 @@
 
               <input
                 type="password"
+                id="password"
                 placeholder="Enter your password"
                 required
               >
@@ -236,21 +238,64 @@
   </section>
 <script>
 
-  const roleButtons = document.querySelectorAll(".role-btn");
+const roleButtons =
+document.querySelectorAll(".role-btn");
 
-  roleButtons.forEach(button => {
+roleButtons.forEach(button => {
 
-    button.addEventListener("click", () => {
+  button.addEventListener("click", () => {
 
-      roleButtons.forEach(btn => {
-        btn.classList.remove("active");
-      });
-
-      button.classList.add("active");
-
+    roleButtons.forEach(btn => {
+      btn.classList.remove("active");
     });
 
+    button.classList.add("active");
+
   });
+
+});
+
+/* =========================
+   FORM SUBMIT
+========================= */
+
+const form =
+document.querySelector(".auth-form");
+
+form.addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  /* GET USERNAME */
+  const username =
+  document.getElementById("email").value;
+
+  /* GET ROLE */
+  const selectedRole =
+  document.querySelector(".role-btn.active")
+  .dataset.role;
+
+  /* SAVE */
+  localStorage.setItem("username", username);
+
+  localStorage.setItem("role", selectedRole);
+
+  /* REDIRECT */
+  if(selectedRole === "student"){
+
+    window.location.href =
+    "./dashboard1.html";
+
+  }
+
+  else{
+
+    window.location.href =
+    "./dashboard2.html";
+
+  }
+
+});
 
 </script>
 </body>
