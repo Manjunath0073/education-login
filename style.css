@@ -80,6 +80,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap:35px;
 
   position: relative;
 }
@@ -171,7 +172,7 @@ body{
 }
 
 .hero-content h1{
-  font-size: 4.2rem;
+  font-size: 3.2rem;
   line-height: 1.1;
   font-weight: 700;
 
@@ -241,24 +242,27 @@ body{
    FLOATING CARDS AREA
 ========================= */
 .floating-cards{
-  position: absolute;
 
-  top: 50%;
-  right: 20px;
+  display: flex;
 
-  transform: translateY(-50%);
+  flex-wrap: wrap;
 
-  width: 260px;
-  height: 430px;
+  gap: 20px;
 
-  z-index: 1;
+  margin-top: 10px;
+
+  width: 100%;
+
+  position: relative;
+  align-items: stretch;
+
+  z-index: 2;
 }
 
 /* =========================
    STATS CARD
 ========================= */
 .stats-card{
-  position: absolute;
 
   width: 180px;
 
@@ -273,8 +277,6 @@ body{
   padding: 22px 24px;
 
   box-shadow: var(--shadow);
-
-  animation: float 5s ease-in-out infinite;
 
   transition:
     transform 0.4s ease,
@@ -318,27 +320,6 @@ body{
   font-size: 0.95rem;
 }
 
-/* =========================
-   CARD POSITIONS
-========================= */
-.card-one{
-  top: 0;
-  right: 0;
-}
-
-.card-two{
-  top: 130px;
-  left: 0;
-
-  animation-delay: 1s;
-}
-
-.card-three{
-  bottom: 0;
-  right: 10px;
-
-  animation-delay: 2s;
-}
 
 /* =========================
    BLUR EFFECTS
@@ -739,10 +720,6 @@ body{
     left: 50px;
   }
 
-  .floating-cards{
-    right: -20px;
-    transform: translateY(-50%) scale(0.9);
-  }
 }
 
 /* =========================
